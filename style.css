@@ -12,6 +12,10 @@ body {
     margin: 0;
 }
 
+body.nav-open {
+    overflow-y: hidden;
+}
+
 .container {
     background-color: #fafafa;
     transform-origin: top left;
@@ -38,6 +42,10 @@ body {
     border-radius: 50%;
     position: relative;
     transition: transform 0.5s linear;
+}
+
+.container.show-nav .circle {
+    transform: rotate(-70deg);
 }
 
 .circle button {

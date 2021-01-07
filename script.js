@@ -1,28 +1,30 @@
-const open = document.getElementById('open')
-const close = document.getElementById('close')
-const container = document.getElementById('container')
-const body = document.getElementById('body')
+const open = document.getElementById("open");
+const close = document.getElementById("close");
+const container = document.querySelector(".container");
+const content = document.querySelector(".content");
+const circle = document.querySelector(".circle");
+const body = document.querySelector("body");
 
-open.addEventListener('click', showNav)
+open.addEventListener("click", () => {
+    addShowNav();
+});
 
-close.addEventListener('click', hideNav)
+close.addEventListener("click", () => {
+    removeShowNav();
+});
 
-document.body.addEventListener('click', (e) => {
-    if (e.target && e.target.nodeName == 'A') {
-        hideNav()
-    }
-})
+container.addEventListener("click", () => {
+    removeShowNav();
+});
 
-function showNav() {
-    container.classList.add('show-nav')
-    container.addEventListener('click', hideNav, true)
-    body.classList.add('nav-open')
-    setTimeout(()=> {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    }, 300)
+addShowNav = () => {
+    container.classList.add("show-nav");
+    circle.classList.add("show-nav");
+    body.classList.add("nav-open")
 }
 
-function hideNav() {
-    container.classList.remove('show-nav')
-    body.classList.remove('nav-open')
+removeShowNav = () => {
+    container.classList.remove("show-nav");
+    circle.classList.remove("show-nav");
+    body.classList.remove("nav-open")
 }

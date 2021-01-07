@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
 
 * {
     box-sizing: border-box;
@@ -23,16 +23,28 @@ body.nav-open {
     width: 100vw;
     min-height: 100vh;
     padding: 50px;
+    position: relative;
 }
 
 .container.show-nav {
     transform: rotate(-20deg);
 }
 
+.container.show-nav::before {
+    content: '';
+    background: linear-gradient(rgba(2, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
 .circle-container {
     position: fixed;
     top: -100px;
     left: -100px;
+    z-index: 10;
 }
 
 .circle {
@@ -44,8 +56,8 @@ body.nav-open {
     transition: transform 0.5s linear;
 }
 
-.container.show-nav .circle {
-    transform: rotate(-70deg);
+.circle.show-nav {
+    transform: rotate(-90deg);
 }
 
 .circle button {
@@ -87,7 +99,7 @@ nav {
 }
 
 nav ul {
-    list-style: none;
+    list-style-type: none;
     padding-left: 30px;
 }
 
@@ -96,7 +108,7 @@ nav ul li {
     color: #fff;
     margin: 40px 0;
     transform: translateX(-100%);
-    transition: transform 0.4s ease-in;
+    transition: transform 0.4s ease-in 0.5s;
 }
 
 nav ul li i {
@@ -126,6 +138,7 @@ nav ul li + li + li {
 .content h1 {
     margin: 0;
 }
+
 .content small {
     color: #555;
     font-style: italic;
